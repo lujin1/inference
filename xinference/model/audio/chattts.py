@@ -67,7 +67,8 @@ class ChatTTSModel:
         torch.backends.cudnn.benchmark = False
 
         assert self._model is not None
-        rnd_spk_emb = self._model.sample_random_speaker()
+        # rnd_spk_emb = self._model.sample_random_speaker()
+        rnd_spk_emb = torch.load('/xinference/speaker/' + voice + '.pt')
 
         default = 5
         infer_speed = int(default * speed)
